@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>whiteboard app</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link href="./styles.css" type="text/css" rel="stylesheet"/>
+    <script src="http://code.jquery.com/jquery-3.3.1.js"></script>
+
+    <canvas id="canvas"></canvas>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <script src="./script.js"></script>
+
+  </head>
+
+  <body>
+
+    <div class="field">
+      
+      <div class="tools">
+          <button onClick="clearCanvas()" type="button" class= "button">Clear</button>
+          <button type="button" class= "button">Text</button>
+
+
+              <div onClick="change_colour(this)" type="button" class="color-field" style="background: red;"></div>
+              <div onClick="change_colour(this)" type="button" class="color-field" style="background: blue;"></div>
+              <div onClick="change_colour(this)" type="button" class="color-field" style="background: green;"></div>
+              <div onClick="change_colour(this)" type="button" class="color-field" style="background: yellow;"></div>
+
+              <input onfocusOut="change_colour_picker(this)" type="color" class="color-picker">
+              <input onfocusOut="change_width(this)" type="range" min="1" max="100" class="pen-range">
+
+
+
+      </div>
+      
+
+  </div>
+</body>
+
+<script src="./script.js"></script>
+  
+</html>
+
