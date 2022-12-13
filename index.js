@@ -9,10 +9,11 @@ io.on("connect", (socket) => {
   connections.push(socket);
   console.log(`${socket.id} has connected`);
 
-  socket.emit("getCanvas", {id : connections[-1].id})
+  connections[0].emit("getCanvas")
+  console.log("sentgetCanvas to client")
 
-  socket.on("recievedCanvas", (data) => {
-    
+  io.on("sentCanvas", (data) => {
+    socket.emit("canvas-data", data )
   })
 
   socket.on("propogate", (data) => {

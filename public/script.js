@@ -115,10 +115,24 @@ window.onmousemove = (e) => {
      */
   }
 
-  var base64ImageData = canvas.toDataURL("./img/png");
-  io.on("getCanvas", base64ImageData )
+  
+  io.on("getCanvas", (data) =>{
+    console.log("recieved message to send canvas ")
+    var base64ImageData = canvas.toDataURL("./img/png");
+    io.emit("sentCanvas", {base64ImageData})
+    console.log("sent canvas to server")
+
+  })
 
   io.on("canvas-data", ({base64ImageData}) =>{
     var img = new Image();
     img.onload = function(){
-      ctx.drawImage(img, 0, 0);
+      ctx.drawImage(img, 0, 0);
+    }
+    img.src = base64ImageData;
+    console.log("canvas data recieved");
+  })
+
+};
+
+
