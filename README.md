@@ -1,3 +1,3 @@
-# whiteboard
+# Whiteboard
 
-use npm run dev to start server with nodemon
+Simple Whiteboard created with Socket.io
