@@ -1,14 +1,12 @@
 var canvas = document.getElementById("canvas");
+var button = document.getElementById("textButton");
 
-canvas.width = window.innerWidth -60;
+canvas.width = window.innerWidth - 60;
 canvas.height = 400;
 
 var io = io.connect("http://localhost:8080/");
 
-
-
 var ctx = canvas.getContext("2d");
-
 
 let x;
 let y;
@@ -16,6 +14,7 @@ let mouseDown = false;
 this.canvas = canvas;
 let line_width = 2;
 ctx.lineWidth = line_width;
+
 
 //brush size changing 
 
@@ -135,4 +134,35 @@ window.onmousemove = (e) => {
 
 };
 
+let textMode = false; // Initialize textMode to false
 
+function toggleTextMode() {
+  textMode = !textMode; // Toggle the textMode value between true and false
+  if (textMode) {
+    button.classList.add("active"); // Add a CSS class to indicate the active mode
+  } else {
+    button.classList.remove("active"); // Remove the CSS class when textMode is false
+  }
+}
+
+function addText(event) {
+  if (!textMode) {
+    return; // Exit the function if textMode is false
+  }
+
+  var text = prompt("Enter the text:");
+  if (text) {
+    var rect = canvas.getBoundingClientRect();
+    x = event.clientX - rect.left;
+    y = event.clientY - rect.top;
+
+    ctx.font = "20px Arial"; // Set the font size and type
+    ctx.fillStyle = "#000000"; // Set the text color
+    ctx.fillText(text, x, y); // Specify the text and its position on the canvas
+  }
+  button.classList.remove("active");
+  textMode = false
+}
+
+button.addEventListener("click", toggleTextMode);
+canvas.addEventListener("click", addText);

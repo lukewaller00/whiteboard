@@ -62,3 +62,17 @@ canvas{
     align-self: center;
     margin: 0 10px;
 }
+
+.icon{
+    max-width: 50px;
+    max-height: 50px;
+}
+.eraser{
+    max-width: 50px;
+    max-height: 50px;
+    background-color: #313131;
+}
+.button.active {
+    background-color: green;
+  }
+  
