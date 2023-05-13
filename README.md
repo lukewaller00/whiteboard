@@ -21,7 +21,7 @@ The Whiteboard App is a web application that allows users to draw and add text o
 ## Getting Started
 
 1. Clone the repository: `git clone https://github.com/your-username/whiteboard-app.git`
-2. Navigate to the project directory: `cd whiteboard-app`
+2. Navigate to the project directory: `cd whiteboard-main`
 3. Install the dependencies: `npm install`
 4. Start the server: `npm run start`
 5. Open your web browser and visit `http://localhost:8080` to access the Whiteboard App.
